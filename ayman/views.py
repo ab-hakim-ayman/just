@@ -4,7 +4,7 @@ from math import ceil
 from . models import(
     About, Skill, Social, Education,
     Experience, Service, Project,
-    Testimonial, Contact
+    Testimonial, Contact, Achievement
 )
 from .forms import ContactForm
 
@@ -20,6 +20,7 @@ def home(request):
     services = Service.objects.filter(is_active=True)
     projects = Project.objects.filter(is_active=True)
     testimonials = Testimonial.objects.all()
+    achievements = Achievement.objects.filter(is_active=True)
     context = {
         'abouts':abouts,
         'left_skills':left_skills,
@@ -30,6 +31,7 @@ def home(request):
         'services':services,
         'projects':projects,
         'testimonials':testimonials,
+        'achievements':achievements,
     }
     return render(request, 'home.html', context)
 

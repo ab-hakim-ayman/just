@@ -1,0 +1,27 @@
+{% load static %}
+
+<!-- Portfolio Start -->
+<div class="container bg-white pt-5 pb-3">
+    <div class="row px-3">
+        <div class="col-12">
+            <h2 class="title position-relative pb-2 mb-4">Latest Projects</h2>
+        </div>
+        <div class="col-12">
+            <div class="row portfolio-container">
+                <div class="col-md-12 mb-4 portfolio-item text-center">
+                    {% for project in projects %}
+                    <h3 class="project-title text-center mt-5"><a class="text-decoration-none" href="{{project.url}}" target="_blank">{{project.title}}</a></h3>
+                    <p class="summary text-center">{{project.summary}}</p>
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid w-100" src="{{project.image.url}}" alt="project banner">                                       
+                    </div>
+                    <div class="desc text-left">                                    
+                        <p>{{project.introduction}}</p>
+                        <p>{{project.description|truncatewords:'15'}} <a href="#" class="text-decoration-none">View details</a> </p>
+                    </div> 
+                    {% endfor %}              
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

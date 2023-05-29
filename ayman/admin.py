@@ -3,7 +3,8 @@ from django.contrib import admin
 from .models import(
     About, Education, Experience,
     Project, Blog, Skill, Service, 
-    Testimonial, Social, Contact
+    Testimonial, Social, Contact,
+    Achievement,
 )
 
 # Register your models here.
@@ -17,3 +18,4 @@ admin.site.register(Service)
 admin.site.register(Testimonial)
 admin.site.register(Social)
 admin.site.register(Contact)
+admin.site.register(Achievement)

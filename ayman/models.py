@@ -49,13 +49,11 @@ class Experience(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=200, unique=True)
     summary = models.CharField(max_length=250)
-    ribbon = models.CharField(max_length=10)
     image = models.ImageField(upload_to='project', default='default/project.jpg')
     introduction = models.CharField(max_length=500)
     description = models.CharField(max_length=500)
-    conclusion = models.CharField(max_length=250)
     url = models.URLField(max_length=250)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True, null=True)
     is_active = models.BooleanField(default=False)
     is_complete = models.BooleanField(default=False)
     created_at = models.DateField(auto_now_add=True)
@@ -65,17 +63,15 @@ class Project(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
     
 class Blog(models.Model):
     title = models.CharField(max_length=200, unique=True)
     summary = models.CharField(max_length=250)
-    ribbon = models.CharField(max_length=10)
     image = models.ImageField(upload_to='blog', default='default/blog.jpg')
     introduction = models.CharField(max_length=500)
     description = models.CharField(max_length=500)
-    conclusion = models.CharField(max_length=250)
     url = models.URLField(max_length=250)
     slug = models.SlugField()
     is_active = models.BooleanField(default=False)
@@ -135,6 +131,18 @@ class Social(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Achievement(models.Model):
+    institute = models.CharField(max_length=75)
+    title = models.CharField(max_length=250, unique=True)
+    url = models.URLField(unique=True)
+    introduction = models.CharField(max_length=500)
+    is_active = models.BooleanField(default=False)
+    created_at = models.DateField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.title
+    
     
 class Contact(models.Model):
     name = models.CharField(max_length=25)
