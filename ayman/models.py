@@ -4,15 +4,20 @@ from django.template.defaultfilters import slugify
 
 # Create your models here.
 class About(models.Model):
-    name = models.CharField(max_length=30)
-    title = models.CharField(max_length=200)
+    STATUS = (
+        ('Available', 'Available'),
+        ('Not Available', 'Not Available')
+    )
+    name = models.CharField(max_length=25)
+    profession = models.CharField(max_length=50)
+    title = models.CharField(max_length=250)
     image = models.ImageField(upload_to='about', default='default/about.jpg')
-    address = models.CharField(max_length=30)
-    email = models.EmailField(max_length=30)
+    address = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50)
     phone = models.CharField(max_length=15)
-    degree = models.CharField(max_length=40)
-    birthday = models.CharField(max_length=30)
-    experience = models.CharField(max_length=30)
+    degree = models.CharField(max_length=50)
+    experience = models.CharField(max_length=50)
+    freelance = models.CharField(max_length=50, choices=STATUS, default=STATUS[0])
     introduction = models.CharField(max_length=500)
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

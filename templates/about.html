@@ -1,0 +1,42 @@
+{% load static %}
+
+<!-- About Start -->
+<div class="container bg-white py-5">
+    <div class="row px-3">
+        <div class="col-12">
+            <h2 class="title position-relative pb-2 mb-4">About Me</h2>
+        </div>
+        <div class="col-12">
+            {% for about in abouts %}
+            <p>{{about.introduction}}</p>
+            <div class="row">
+                <div class="col-sm-6 py-1">
+                    <h5 class="d-inline text-primary">Name:</h5> {{about.name}}
+                </div>
+                <div class="col-sm-6 py-1">
+                    <h5 class="d-inline text-primary">Experience:</h5> {{about.experience}}
+                </div>
+                <div class="col-sm-6 py-1">
+                    <h5 class="d-inline text-primary">Address:</h5> {{about.address}}
+                </div>
+                <div class="col-sm-6 py-1">
+                    <h5 class="d-inline text-primary">Freelance:</h5> {{about.freelance}}
+                </div>
+                <div class="col-sm-6 py-1">
+                    <h5 class="d-inline text-primary">Profession:</h5> {{about.profession}}
+                </div>
+                <div class="col-sm-6 py-1">
+                    <h5 class="d-inline text-primary">Phone:</h5> {{about.phone}}
+                </div>
+                <div class="col-sm-6 py-1">
+                    <h5 class="d-inline text-primary">Degree:</h5> {{about.degree}}
+                </div>
+                <div class="col-sm-6 py-1">
+                    <h5 class="d-inline text-primary">Email:</h5> {{about.email}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- About End -->

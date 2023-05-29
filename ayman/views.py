@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from math import ceil
 
 from . models import(
@@ -6,6 +6,7 @@ from . models import(
     Experience, Service, Project,
     Testimonial, Contact
 )
+from .forms import ContactForm
 
 # Create your views here.
 def home(request):
@@ -31,3 +32,15 @@ def home(request):
         'testimonials':testimonials,
     }
     return render(request, 'home.html', context)
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            Contact.objects.create(
+                name=form.cleaned_data.get('name'),
+                email=form.cleaned_data.get('email'),
+                subject=form.cleaned_data.get('subject'),
+                message=form.cleaned_data.get('message')
+            )
+        return redirect(home)

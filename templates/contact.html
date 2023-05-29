@@ -8,33 +8,32 @@
         </div>
         <div class="col-12">
             <div class="contact-form">
-                <div id="success"></div>
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                <form action="{% url 'contact' %}" method="POST" novalidate="novalidate">
+                    {% csrf_token %}
                     <div class="form-row">
                         <div class="control-group col-sm-6">
-                            <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
-                                required="required" data-validation-required-message="Please enter your name" />
+                            <input type="text" name="name" class="form-control p-4" placeholder="Your Name"
+                                required="required"/>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group col-sm-6">
-                            <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
-                                required="required" data-validation-required-message="Please enter your email" />
+                            <input type="email" name="email" class="form-control p-4" placeholder="Your Email"
+                                required="required"/>
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="control-group">
-                        <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
-                            required="required" data-validation-required-message="Please enter a subject" />
+                        <input type="text" name="subject" class="form-control p-4" placeholder="Subject"
+                            required="required"/>
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
-                        <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
-                            required="required"
-                            data-validation-required-message="Please enter your message"></textarea>
+                        <textarea name="message" class="form-control py-3 px-4" rows="5" placeholder="Message"
+                            required="required"></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
                     <div>
-                        <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Send Message</button>
+                        <button class="btn btn-primary py-3 px-4" type="submit">Send Message</button>
                     </div>
                 </form>
             </div>

@@ -28,69 +28,9 @@
 
     <body data-spy="scroll" data-target=".navbar" data-offset="51">
         <div class="wrapper">
-            <div class="sidebar">
-                <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
-                    <img class="w-100 img-fluid mb-4" src="{% static 'img/profile.jpg' %}" alt="Image">
-                    <h1 class="mt-2">John Doe</h1>
-                    <div class="mb-4" style="height: 22px;">
-                        <h4 class="typed-text-output d-inline-block text-body"></h4>
-                        <div class="typed-text d-none">Web Designer, Web Developer, Front End Developer, Apps Designer, Apps Developer</div>
-                    </div>
-                    <div class="d-flex justify-content-center mt-auto mb-3">
-                        <a class="mx-2" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="mx-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="mx-2" href="#"><i class="fab fa-instagram"></i></a>
-                        <a class="mx-2" href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                    <div class="d-flex align-items-end justify-content-between">
-                        <a href="" class="btn btn-block border-right">Download CV</a>
-                        <a href="#contact" class="btn btn-block btn-scroll">Contact Me</a>
-                    </div>
-                </div>
-                <div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
-                    <i class="fas fa-2x fa-angle-double-right text-primary"></i>
-                </div>
-            </div>
+            {% include 'sidebar.html' %}
             <div class="content">
-                <!-- About Start -->
-                <div class="container bg-white py-5">
-                    <div class="row px-3">
-                        <div class="col-12">
-                            <h2 class="title position-relative pb-2 mb-4">About Me</h2>
-                        </div>
-                        <div class="col-12">
-                            <p>Sea et gubergren justo invidunt at amet clita. Justo sit justo tempor et invidunt voluptua, lorem voluptua ipsum gubergren et est nonumy magna et vero, sit eos dolor sea sed et dolor erat et. Accusam accusam magna aliquyam eirmod amet est kasd dolore sanctus. Lorem ea vero lorem eos eos sanctus labore. Aliquyam vero ipsum dolor duo clita consetetur stet, aliquyam ipsum sea sed et magna amet dolor.</p>
-                            <div class="row">
-                                <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Name:</h5> John Doe
-                                </div>
-                                <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Birthday:</h5> 1 April 1990
-                                </div>
-                                <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Degree:</h5> Master
-                                </div>
-                                <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Experience:</h5> 10 Years
-                                </div>
-                                <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Phone:</h5> +012 345 6789
-                                </div>
-                                <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Email:</h5> info@example.com
-                                </div>
-                                <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Address:</h5> 123 Street, New York, USA
-                                </div>
-                                <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Freelance:</h5> Available
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- About End -->
+                {% include 'about.html' %}
 
 
                 {% include 'skill.html' %}
