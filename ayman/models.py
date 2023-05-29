@@ -6,7 +6,7 @@ from django.template.defaultfilters import slugify
 class About(models.Model):
     name = models.CharField(max_length=30)
     title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='outline')
+    image = models.ImageField(upload_to='about', default='default/about.jpg')
     address = models.CharField(max_length=30)
     email = models.EmailField(max_length=30)
     phone = models.CharField(max_length=15)
@@ -67,7 +67,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=200, unique=True)
     summary = models.CharField(max_length=250)
     ribbon = models.CharField(max_length=10)
-    image = models.ImageField(upload_to='project', default='default/blog.jpg')
+    image = models.ImageField(upload_to='blog', default='default/blog.jpg')
     introduction = models.CharField(max_length=500)
     description = models.CharField(max_length=500)
     conclusion = models.CharField(max_length=250)
@@ -114,6 +114,7 @@ class Service(models.Model):
 class Testimonial(models.Model):
     author = models.CharField(max_length=25)
     author_title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='testimonial', default='default/testimonial.jpg')
     quotation = models.CharField(max_length=200)
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -1,0 +1,23 @@
+{% load static %}
+
+<!-- Experience Start -->
+<div class="container bg-white py-5">
+    <div class="row px-3">
+        <div class="col-12">
+            <h2 class="title position-relative pb-2 mb-4">Expericence</h2>
+        </div>
+        <div class="col-12">
+            <div class="border-left border-primary pt-2 pl-4 ml-2">
+                {% for experience in experiences%}
+                <div class="position-relative mb-4">
+                    <i class="fa fa-arrow-right text-primary position-absolute" style="top: 3px; left: -24px;"></i>
+                    <h5 class="mb-1">{{experience.title}}</h5>
+                    <p class="mb-2">{{experience.institute}} | <small>{{experience.session}}</small></p>
+                    <p>{{experience.description}}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Experience End -->

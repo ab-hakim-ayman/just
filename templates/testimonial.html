@@ -8,39 +8,19 @@
         </div>
         <div class="col-12">
             <div class="owl-carousel testimonial-carousel">
+                {% for testimonial in testimonials %}
                 <div class="text-left">
                     <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                    <h4 class="text-body mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
+                    <h4 class="text-body mb-4">{{testimonial.quotation}}</h4>
                     <div class="d-flex align-items-center">
-                        <img class="img-fluid" src="{% static 'img/testimonial-1.jpg' %}" style="width: 60px; height: 60px;">
+                        <img class="img-fluid" src="{{testimonial.image.url}}" style="width: 60px; height: 60px;">
                         <div class="pl-3">
-                            <h5 class="text-primary m-0">Client Name</h5>
-                            <i>Profession</i>
+                            <h5 class="text-primary m-0">{{testimonial.author}}</h5>
+                            <i>{{testimonial.author_title}}</i>
                         </div>
                     </div>
                 </div>
-                <div class="text-left">
-                    <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                    <h4 class="text-body mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid" src="{% static 'img/testimonial-2.jpg' %}" style="width: 60px; height: 60px;">
-                        <div class="pl-3">
-                            <h5 class="text-primary m-0">Client Name</h5>
-                            <i>Profession</i>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-left">
-                    <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                    <h4 class="text-body mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</h4>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid" src="{% static 'img/testimonial-3.jpg' %}" style="width: 60px; height: 60px;">
-                        <div class="pl-3">
-                            <h5 class="text-primary m-0">Client Name</h5>
-                            <i>Profession</i>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

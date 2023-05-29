@@ -18,6 +18,7 @@ def home(request):
     experiences = Experience.objects.filter(is_active=True)
     services = Service.objects.filter(is_active=True)
     projects = Project.objects.filter(is_active=True)
+    testimonials = Testimonial.objects.all()
     context = {
         'abouts':abouts,
         'left_skills':left_skills,
@@ -27,5 +28,6 @@ def home(request):
         'experiences':experiences,
         'services':services,
         'projects':projects,
+        'testimonials':testimonials,
     }
     return render(request, 'home.html', context)
