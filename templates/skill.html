@@ -1,0 +1,36 @@
+{% load static %}
+<!-- Skills Start -->
+<div class="container bg-white py-5">
+    <div class="row px-3">
+        <div class="col-12">
+            <h2 class="title position-relative pb-2 mb-4">Skills</h2>
+        </div>
+        <div class="col-sm-6">
+            <div class="skill mb-4">
+                {% for skill in left_skills %}
+                <div class="d-flex justify-content-between">
+                    <p class="mb-1 mt-3">{{skill.name}}</p>
+                    <p class="mb-1 mt-3">{{skill.tag}}</p>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="{{skill.level}}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="skill mb-4">
+                {% for skill in right_skills %}
+                <div class="d-flex justify-content-between">
+                    <p class="mb-1 mt-3">{{skill.name}}</p>
+                    <p class="mb-1 mt-3">{{skill.tag}}</p>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="{{skill.level}}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Skills End -->

@@ -1,0 +1,21 @@
+{% load static %}
+<!-- Education Start -->
+<div class="container bg-white py-5">
+    <div class="row px-3">
+        <div class="col-12">
+            <h2 class="title position-relative pb-2 mb-4">Education</h2>
+        </div>
+        <div class="col-12">
+            <div class="border-left border-primary pt-2 pl-4 ml-2">
+                {% for education in educations %}
+                <div class="position-relative mb-4">
+                    <i class="fa fa-arrow-right text-primary position-absolute" style="top: 3px; left: -24px;"></i>
+                    <h5 class="mb-1">{{education.degree}}</h5>
+                    <p class="mb-2">{{education.institute}}| <small>{{education.session}}</small></p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Education End -->
