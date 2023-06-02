@@ -1,26 +1,32 @@
 {% load static %}
 
-<!-- Portfolio Start -->
-<div class="container bg-white pt-5 pb-3">
+ <div class="container bg-white pt-5 pb-3">
     <div class="row px-3">
         <div class="col-12">
-            <h2 class="title position-relative pb-2 mb-4">Latest Projects</h2>
+            <h2 class="title position-relative pb-2 mb-4">Portfolio</h2>
         </div>
         <div class="col-12">
-            <div class="row portfolio-container">
-                <div class="col-md-12 mb-4 portfolio-item text-center">
-                    {% for project in projects %}
-                    <h3 class="project-title text-center mt-5"><a class="text-decoration-none" href="{{project.url}}" target="_blank">{{project.title}}</a></h3>
-                    <p class="summary text-center">{{project.summary}}</p>
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid w-100" src="{{project.image.url}}" alt="project banner">                                       
-                    </div>
-                    <div class="desc text-left">                                    
-                        <p>{{project.introduction}}</p>
-                        <p>{{project.description|truncatewords:'15'}} <a href="#" class="text-decoration-none">View details</a> </p>
-                    </div> 
-                    {% endfor %}              
+            <div class="row">
+                <div class="col-12 text-center mb-2">
+                    <ul class="list-inline mb-4" id="portfolio-flters">
+                        <li class="btn btn-outline-primary active"  data-filter="*"><i class="fa fa-star mr-2"></i>All</li>
+                        {% for c in category %}
+                        <li class="btn btn-outline-primary" data-filter=".{{c.name}}"><i class="fa fa-laptop-code mr-2"></i>{{c.name}}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
+            </div>
+            <div class="row portfolio-container">
+                {% for project in projects %}
+                <div class="col-md-6 mb-4 portfolio-item {{project.category.name}}">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <div class="text-center">
+                            <a href="{{project.url}}" target="_blank" class="text-decoration-none"><h4 class="text-primary">{{project.title}}</h4></a>
+                        </div>
+                        <img class="img-fluid w-100" height="200px" width="200px" src="{{project.image.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

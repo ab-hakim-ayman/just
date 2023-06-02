@@ -3,7 +3,7 @@ from math import ceil
 
 from . models import(
     About, Skill, Social, Education,
-    Experience, Service, Project,
+    Experience, Service, Project, Category,
     Testimonial, Contact, Achievement
 )
 from .forms import ContactForm
@@ -19,6 +19,7 @@ def home(request):
     experiences = Experience.objects.filter(is_active=True)
     services = Service.objects.filter(is_active=True)
     projects = Project.objects.filter(is_active=True)
+    category = Category.objects.filter(is_active=True)
     testimonials = Testimonial.objects.all()
     achievements = Achievement.objects.filter(is_active=True)
     context = {
@@ -30,6 +31,7 @@ def home(request):
         'experiences':experiences,
         'services':services,
         'projects':projects,
+        'category':category,
         'testimonials':testimonials,
         'achievements':achievements,
     }

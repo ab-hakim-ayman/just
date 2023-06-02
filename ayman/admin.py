@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import(
     About, Education, Experience,
-    Project, Blog, Skill, Service, 
+     Skill, Service, Category, Project,
     Testimonial, Social, Contact,
     Achievement,
 )
@@ -11,8 +11,8 @@ from .models import(
 admin.site.register(About)
 admin.site.register(Education)
 admin.site.register(Experience)
+admin.site.register(Category)
 admin.site.register(Project)
-admin.site.register(Blog)
 admin.site.register(Skill)
 admin.site.register(Service)
 admin.site.register(Testimonial)

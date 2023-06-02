@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from PIL import Image
 
 
 # Create your models here.
@@ -25,6 +26,14 @@ class About(models.Model):
     def __str__(self):
         return self.name
     
+    def save(self, *args, **kwargs):
+        super(About, self).save(*args, **kwargs)
+        img = Image.open(self.image.path)
+        if img.height > 100 or img.width > 100:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
+    
 class Education(models.Model):
     degree = models.CharField(max_length=100)
     institute = models.CharField(max_length=100)
@@ -45,46 +54,35 @@ class Experience(models.Model):
     
     def __str__(self):
         return self.title
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=25, unique=True)
+    is_active = models.BooleanField(default=False)
+    created_at = models.DateField(auto_now=True)
+    def __str__(self):
+        return self.name
     
 class Project(models.Model):
     title = models.CharField(max_length=200, unique=True)
-    summary = models.CharField(max_length=250)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='project', default='default/project.jpg')
-    introduction = models.CharField(max_length=500)
-    description = models.CharField(max_length=500)
     url = models.URLField(max_length=250)
     slug = models.SlugField(blank=True, null=True)
     is_active = models.BooleanField(default=False)
     is_complete = models.BooleanField(default=False)
     created_at = models.DateField(auto_now_add=True)
-
+    
     def __str__(self):
         return self.title
+
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
-    
-class Blog(models.Model):
-    title = models.CharField(max_length=200, unique=True)
-    summary = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='blog', default='default/blog.jpg')
-    introduction = models.CharField(max_length=500)
-    description = models.CharField(max_length=500)
-    url = models.URLField(max_length=250)
-    slug = models.SlugField()
-    is_active = models.BooleanField(default=False)
-    created_at = models.DateField(auto_now_add=True)
 
-    def __str__(self):
-        return self.title
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        return super().save(*args, **kwargs)
-    
 class Skill(models.Model):
     TAGS = (
         ('expert', 'Expert'),

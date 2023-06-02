@@ -3,7 +3,7 @@
 <div class="sidebar">
     <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
         {% for about in abouts %}
-        <img class="w-100 img-fluid text-center rounded-circle mb-4" src="{{about.image.url}}" alt="Image">
+        <img class="w-100 h-100 img-fluid text-center mb-4" src="{{about.image.url}}" alt="Image">
         <h2 class="mt-2">{{about.name}}</h2>
         <div class="mb-4" style="height: 22px;">
             <h4 class="typed-text-output d-inline-block text-body"></h4>
@@ -16,7 +16,7 @@
         </div>
         {% endfor %}
         <div class="d-flex align-items-end justify-content-between">
-            <a href="" class="btn btn-block border-right">Download CV</a>
+            <a href="https://drive.google.com/file/d/1j7w2bt9nAZBo0861YAPC8kK8PUnUFgOv/view?usp=sharing" class="btn btn-block border-right">Download CV</a>
             <a href="#contact" class="btn btn-block btn-scroll">Contact Me</a>
         </div>
     </div>
